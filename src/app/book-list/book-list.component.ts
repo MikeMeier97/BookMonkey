@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
@@ -8,6 +8,10 @@ import { Book } from '../shared/book';
 })
 export class BookListComponent {
   books: Book[] = [];
+  @Input() selectBook = new EventEmitter<Book>();
+  doSelect(book: Book) {
+    this.selectBook.emit(book);
+  }
   constructor() {
     this.books = [
       {

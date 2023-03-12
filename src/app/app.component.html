@@ -1,3 +1,6 @@
 <main>
-    <app-book-list></app-book-list>
+    <app-book-list *ngIf="!book"
+    (selectBook)="showDetails($event)"></app-book-list>
+    <app-book-details *ngIf="book"
+    (leave)="showList()" [book]="book"></app-book-details>
 </main>
